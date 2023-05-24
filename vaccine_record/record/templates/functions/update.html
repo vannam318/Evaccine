@@ -1,0 +1,48 @@
+{% load i18n %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+{% block content %}
+<div class="container mt-5">
+    <h1>Chỉnh sửa sổ Vaccine</h1>
+        <form method="POST" class="form-group mt-4 border p-4 rounded">
+            {% csrf_token %}
+            {{ vaccine_form.non_field_errors }}
+            <div class="form-group">
+                <label for="{{ vaccine_form.Tên_Vaccine.id_for_label }}" class="form-label">Tên Vaccine:</label>
+                {{ vaccine_form.Tên_Vaccine }}
+            </div>
+            <div class="form-group">
+                <label for="{{ vaccine_form.Ngày_tiêm.id_for_label }}" class="form-label">Ngày tiêm:</label>
+                {{ vaccine_form.Ngày_tiêm }}
+            </div>
+            <div class="form-group">
+                <label for="{{ vaccine_form.Nơi_tiêm.id_for_label }}" class="form-label">Nơi tiêm:</label>
+                {{ vaccine_form.Nơi_tiêm }}
+            </div>
+            <div class="form-group">
+                <label for="{{ vaccine_form.Sức_khỏe_trước_khi_tiêm.id_for_label }}" class="form-label">Sức khỏe trước khi tiêm:</label>
+                {{ vaccine_form.Sức_khỏe_trước_khi_tiêm }}
+            </div>
+            <div class="form-group">
+                <label for="{{ vaccine_form.Sức_khỏe_sau_khi_tiêm.id_for_label }}" class="form-label">Sức khỏe sau khi tiêm:</label>
+                {{ vaccine_form.Sức_khỏe_sau_khi_tiêm }}
+            </div>
+            <div class="form-group">
+                <label for="{{ vaccine_form.Liều_lượng.id_for_label }}" class="form-label">Liều lượng:</label>
+                {{ vaccine_form.Liều_lượng }}
+            </div>
+            <div class="form-group">
+                <label for="{{ vaccine_form.Ghi_chú.id_for_label }}" class="form-label">Ghi chú:</label>
+                {{ vaccine_form.Ghi_chú }}
+            </div> 
+            <button type="submit" class="btn btn-primary">Lưu</button>
+        </form>
+</div>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% load i18n %}
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <!-- Pogo Slider CSS -->
+  <link rel="stylesheet" href="{% static 'css/pogo-slider.min.css' %} ">
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %} ">    
+  <!-- Responsive CSS -->
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'css/regist.css'%}">
+</head>
+<body>
+
+    <div class="p-5 text-center bg-light">
+        <h1>Đăng ký</h1>
+    </div>
+    {% block body_block %}
+    <div class="card card-registration my-4">
+        <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+                <img src="{% static 'images/pexels-nataliya-vaitkevich-8830487.jpg'%}"
+                    alt="Sample photo" class="img-fluid"
+                    style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;">
+            </div>
+            <div class="col-xl-6">
+                <div class="card-body p-md-5 text-black">
+                    {% if registered %}
+                        <h1 class="mb-5 text-uppercase">Thank you for registering!</h1>
+                        <script>
+                            window.location.href = "{% url 'index' %}";
+                        </script>
+                    {% else %}
+                        <h1 class="mb-5 text-uppercase">Register here!</h1>
+                        <h3 class="mb-4">Please enter your information below:</h3>
+                        <div class="registration-form">
+                            <form action="{% url 'register' %}" method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="{{ user_form.username.id_for_label }}" class="form-label">{{ user_form.username.label_tag }}</label>
+                                    <input type="text" name="{{ user_form.username.html_name }}" id="{{ user_form.username.id_for_label }}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ user_form.email.id_for_label }}" class="form-label">{{ user_form.email.label_tag }}</label>
+                                    <input type="email" name="{{ user_form.email.html_name }}" id="{{ user_form.email.id_for_label }}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ user_form.password.id_for_label }}" class="form-label">{{ user_form.password.label_tag }}</label>
+                                    <input type="password" name="{{ user_form.password.html_name }}" id="{{ user_form.password.id_for_label }}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ profile_form.Họ_và_Tên.id_for_label }}" class="form-label">{{ profile_form.Họ_và_Tên.label_tag }}</label>
+                                    <input type="text" name="{{ profile_form.Họ_và_Tên.html_name }}" id="{{ profile_form.Họ_và_Tên.id_for_label }}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ profile_form.Tuoi.id_for_label }}" class="form-label">{{ profile_form.Tuoi.label_tag }}</label>
+                                    <input type="number" name="{{ profile_form.Tuoi.html_name }}" id="{{ profile_form.Tuoi.id_for_label }}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ profile_form.Ngày_sinh.id_for_label }}" class="form-label">{{ profile_form.Ngày_sinh.label_tag }}</label>
+                                    <input type="date" name="{{ profile_form.Ngày_sinh.html_name }}" id="{{ profile_form.Ngày_sinh.id_for_label }}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ profile_form.Số_điện_thoại.id_for_label }}" class="form-label">{{ profile_form.Số_điện_thoại.label_tag }}</label>
+                                    <input type="tel" name="{{ profile_form.Số_điện_thoại.html_name }}" id="{{ profile_form.Số_điện_thoại.id_for_label }}" class="form-control">
+                                </div>
+                                <input type="submit" value="Register" class="btn btn-warning btn-lg">
+                            </form>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</div>
+
+</body>
+<script>
+    $(document).ready(function(){
+        $('# Ngày_sinh').mask('0000/00/00');
+        $('# Số_điện_thoại').mask('+84-000000000');
+       })
+</script>
+</html>

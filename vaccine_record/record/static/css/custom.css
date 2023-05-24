@@ -1,0 +1,22 @@
+
+/** ADD YOUR AWESOME CODES HERE **/
+.form-control {
+    border-radius: 0;
+}
+
+/* Style the buttons */
+.btn {
+    border-radius: 0;
+}
+
+/* Style the progress bar */
+.progress {
+    margin-top: 30px;
+}
+
+.progress-bar {
+    background-color: #007bff;
+}
+.step-form {
+    background-color: #f0f0f0;
+}

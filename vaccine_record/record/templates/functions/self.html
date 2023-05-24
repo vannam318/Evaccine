@@ -1,0 +1,77 @@
+{% load i18n %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center">
+                    <a class="navbar-brand" href={%url 'index'%}><img src="{% static 'images/logo.png' %}" alt="image"></a>
+                    <h1 class="ml-3 font-weight-bold text-center">{% block title %}Hãy tạo Form{% endblock %}</h1>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-8">     
+                <form action="" method="post" class="form-group mt-5 border p-4 rounded">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    
+                    <div class="form-group">
+                        <label for="{{ form.Tên_Vaccine.id_for_label }}" class="form-label">Tên Vaccine:</label>
+                        <input type="text" name="{{ form.Tên_Vaccine.name }}" id="{{ form.Tên_Vaccine.id_for_label }}" class="form-control" value="{{ form.Tên_Vaccine.value }}">
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="{{ form.Ngày_tiêm.id_for_label }}" class="form-label">Ngày tiêm:</label>
+                        <input type="date" name="{{ form.Ngày_tiêm.name }}" id="{{ form.Ngày_tiêm.id_for_label }}" class="form-control" value="{{ form.Ngày_tiêm.value }}">
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="{{ form.Nơi_tiêm.id_for_label }}" class="form-label">Nơi tiêm:</label>
+                        <input type="text" name="{{ form.Nơi_tiêm.name }}" id="{{ form.Nơi_tiêm.id_for_label }}" class="form-control" value="{{ form.Nơi_tiêm.value }}">
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="{{ form.Sức_khỏe_trước_khi_tiêm.id_for_label }}" class="form-label">Sức khỏe trước khi tiêm:</label>
+                        <input type="text" name="{{ form.Sức_khỏe_trước_khi_tiêm.name }}" id="{{ form.Sức_khỏe_trước_khi_tiêm.id_for_label }}" class="form-control" value="{{ form.Sức_khỏe_trước_khi_tiêm.value }}">
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="{{ form.Sức_khỏe_sau_khi_tiêm.id_for_label }}" class="form-label">Sức khỏe sau khi tiêm:</label>
+                        <input type="text" name="{{ form.Sức_khỏe_sau_khi_tiêm.name }}" id="{{ form.Sức_khỏe_sau_khi_tiêm.id_for_label }}" class="form-control" value="{{ form.Sức_khỏe_sau_khi_tiêm.value }}">
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="{{ form.Liều_lượng.id_for_label }}" class="form-label">Liều lượng:</label>
+                        <input type="text" name="{{ form.Liều_lượng.name }}" id="{{ form.Liều_lượng.id_for_label }}" class="form-control" value="{{ form.Liều_lượng.value }}">
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="{{ form.Ghi_chú.id_for_label }}" class="form-label">Ghi chú:</label>
+                        <input type="text" name="{{ form.Ghi_chú.name }}" id="{{ form.Ghi_chú.id_for_label }}" class="form-control" value="{{ form.Ghi_chú.value }}">
+                    </div>
+                
+                    <button type="submit" class="btn btn-primary">Tạo ngay</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <div class="info animated bounce">
+                    <h4>Hồ sơ tiêm chủng</h4>
+                    <p>Theo dõi các lần tiêm chủng bằng cách ghi chú chúng trong hồ sơ tiêm chủng của bạn.</p>
+                    <p>Hãy chắc chắn cập nhật hồ sơ của bạn sau mỗi lần tiêm chủng.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

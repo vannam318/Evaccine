@@ -1,0 +1,68 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{%block head_block%}
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+{%endblock%}
+{%block body_block%}
+<h2>Chào mừng bạn đến với EVACCINE</h2>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+	<form action="{% url 'register' %}" method="post">
+      {%csrf_token%}
+      <h1> Tạo tài khoản </h1>
+		<input type="text" id="{{ user_form.username}}"  placeholder=" Username" required>
+		<input type="email" id="{{ user_form.email }}" placeholder="Email" required>
+		<input type="password" id="{{ user_form.password1 }}" placeholder="Password" required>
+		<input type="text" id="{{ profile_form.Họ_và_Tên}}" placeholder = "Họ và tên" required>
+		<input type="text" id="{{ profile_form.Ngày_sinh}}" placeholder = "Ngày sinh" required>
+		<input type="text" id="{{ profile_form.Tuoi }}" placeholder = "Tuổi" required>
+		<input type="text" id="{{ profile_form.Số_điện_thoại}}" placeholder = "Số điện thoại" required>
+	  	<br> 
+		  <input type="submit" value="Register" class="btn btn-warning btn-lg">
+	</form>
+	</div>
+	
+	<div class="form-container sign-in-container">
+		<form action={%url 'login'%} method=post>
+      {%csrf_token%}
+			<h1>Đăng nhập</h1>
+      <input type="text" id="username" name="username" placeholder="Username" required>
+      <input type="password" id="password" name="password" placeholder="Password" required/>
+			<a href="#">Forgot your password?</a>
+      <button type="submit">Đăng nhập</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Chào mừng bạn đã trở lại!</h1>
+				<p>Để sử dụng dịch vụ, xin vui lòng điền thông tin đăng nhập !</p>
+				<button class="ghost" id="signIn">Đăng nhập</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Bạn chưa có tài khoản ? </h1>
+				<p>Hãy điền thông tin của bạn vào nhé để đăng ký nhé !</p>
+				<button class="ghost" id="signUp">Đăng ký</button>
+			</div>
+		</div>
+	</div>
+</div>
+{%endblock%}
+<script>
+  const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});
+</script>

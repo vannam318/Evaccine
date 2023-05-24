@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en"><!-- Basic -->
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+   
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 
+     <!-- Site Metas -->
+    <title>EVACCINE</title>  
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Pogo Slider CSS -->
+    <link rel="stylesheet" href="{% static 'css/pogo-slider.min.css' %} ">
+	<!-- Site CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %} ">    
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/custom.css'%}">
+
+
+
+</head>
+<body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
+
+  <!-- LOADER -->
+   <div id="preloader">
+		<div class="loader">
+			<img src="images/preloader.gif" alt="" >
+		</div>
+    </div>
+
+	
+	{% comment %} Bắt đầu top bar {% endcomment %}
+	<div class="main-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="left-top">
+						<a class="new-btn-d br-2" href="{%url 'register'%}"><span>Tài khoản</span></a>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="wel-nots">
+						<p>Welcome to Our Vaccine Record!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% comment %} Kết thúc top bar {% endcomment %}
+	
+	{% comment %} Bắt đầu header {% endcomment %}
+	<header class="top-header">
+		<nav class="navbar header-nav navbar-expand-lg">
+            <div class="container">
+				<a class="navbar-brand" href={%url 'index'%}><img src="{% static 'images/logo.png' %}" alt="image"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+                    <ul class="navbar-nav">
+                        <li><a class="nav-link active" href="#home">Trang chủ</a></li>
+                        <li><a class="nav-link" href="#about">Về chúng tôi</a></li>
+                        <li><a class="nav-link" href="#services">Sổ Vacccine</a></li>
+						<li><a class="nav-link" href="#appointment">Hỗ trợ</a></li>
+                        <li><a class="nav-link" href="#gallery">Tin tức</a></li>
+						<li><a class="nav-link" href="#team">Vaccine</a></li>
+						{%if user.is_authenticated%}
+						<li><a class="nav-link" href="{%url 'logout'%}">Logout</a></li>
+						{%else%}
+						<li><a class="nav-link" href="{%url 'login'%}">Login</a></li>
+						{%endif%}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+	</header>
+	{% comment %} Kết thúc header {% endcomment %}
+	
+	{% comment %} Bắt đầu Banner {% endcomment %}
+	<div class="ulockd-home-slider">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="pogoSlider" id="js-main-slider">
+					<div class="pogoSlider-slide" data-transition="fade" data-duration="1500" style="background-image:url({%static 'images/pexels-maksim-goncharenok-5995163.jpg' %});">
+						<div class="lbox-caption pogoSlider-slide-element">
+							<div class="lbox-details">
+								<h1>Chào mừng đến với EVACCINE</h1>
+								<p> "Một bước tiêm vaccine, một bước phòng chống bệnh tật cùng sổ vaccine điện tử" </p>
+								<a href={% url 'form_submission' %} class="btn">Sử dụng ngay</a>
+							</div>
+						</div>
+					</div>
+					<div class="pogoSlider-slide" data-transition="fade" data-duration="1500" style="background-image:url({%static 'images/pexels-mart-production-7230894.jpg'%} );">
+						<div class="lbox-caption pogoSlider-slide-element">
+							<div class="lbox-details">
+								<h1>Chào mừng đến với EVACCINE</h1>
+								<p> "Một bước tiêm vaccine, một bước phòng chống bệnh tật cùng sổ vaccine điện tử"</p>
+								<a href="#appointment" class="btn">Sử dụng ngay</a>
+							</div>
+						</div>
+					</div>
+					<div class="pogoSlider-slide" data-transition="fade" data-duration="1500" style="background-image:url({%static 'images/pexels-maksim-goncharenok-5994670.jpg'%} );">
+						<div class="lbox-caption pogoSlider-slide-element">
+							<div class="lbox-details">
+								<h1>Chào mừng đến với EVACCINE</h1>
+								<p> "Một bước tiêm vaccine, một bước phòng chống bệnh tật cùng sổ vaccine điện tử" </p>
+								<a href="#" class="btn">Sử dụng ngay</a>
+							</div>
+						</div>
+						
+					</div>
+				</div><!-- .pogoSlider -->
+			</div>
+		</div>
+	</div>
+	{% comment %} Kết thúc Banner {% endcomment %}
+	
+	{% comment %} Bắt đầu về chúng tôi {% endcomment %}
+	<div id="about" class="about-box">
+		<div class="about-a1">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="title-box">
+							<h2>Về chúng tôi</h2>
+							<p>Một tiện ích cho người dùng về vấn đề quản lý tiêm chủng </p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="row align-items-center about-main-info">
+							<div class="col-lg-6 col-md-6 col-sm-12">
+								<h2> Chào mừng các bạn đến với EVACCINE </h2>
+								<p>Chào mừng đến với trang web sổ vaccine điện tử! Đây là nơi tập trung thông tin về việc tiêm vaccine phòng COVID-19 và các loại vaccine khác tại Việt Nam. Trang web cung cấp cho người dùng một nền tảng để lưu trữ thông tin về các liều vaccine đã tiêm, giúp quản lý sổ vaccine cá nhân một cách dễ dàng và tiện lợi. Bên cạnh đó, người dùng cũng có thể tìm hiểu về các thông tin liên quan đến vaccine, cập nhật tin tức về tình hình tiêm vaccine tại Việt Nam và trên thế giới. Với mục đích tạo ra một cộng đồng chung quanh vấn đề vaccine, trang web sổ vaccine điện tử hy vọng sẽ giúp người dân Việt Nam đóng góp vào việc chống dịch COVID-19 và bảo vệ sức khỏe của bản thân và cộng đồng.</p>
+								
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-12">
+								<div class="about-m">
+									<ul id="banner">
+										<li>
+											<img src="{%static 'images/pexels-nataliya-vaitkevich-8830487.jpg'%}" alt="">
+										</li>
+										<li>
+											<img src="{%static 'images/pexels-mart-production-7230894.jpg'%}" alt="">
+										</li>
+										<li>
+											<img src="{%static 'images/about-img-03.jpg' %}" alt="">
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% comment %} Kết thúc về chúng tôi {% endcomment %}
+	
+	{% comment %} Bắt đầu sổ vaccine {% endcomment %}
+	<div id="services" class="services-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="title-box">
+						<h2>Sổ Vaccine</h2>
+						<p>Tạo sổ Vaccine ngay </p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="owl-carousel owl-theme">
+						<div class="item">
+							<div class="serviceBox">
+								<div class="service-icon"><i class="fa fa-heart" aria-hidden="true"></i></div>
+								<h3 class="title">Tạo cho chính mình</h3>
+								<p class="description">
+									Sử dụng để tự quản lý tiêm chủng cho bản thân.
+								</p>
+									<a type="onclick"  href="{%url 'self_form'%}"  class="new-btn-d br-2" >Sử dụng ngay</a>
+							</div>
+						</div>
+						<div class="item">
+							<div class="serviceBox">
+								<div class="service-icon"><i class="fa fa-plus-square" aria-hidden="true"></i></div>
+								<h3 class="title">Tạo cho người thân</h3>
+								<p class="description">
+									Sử dụng để hỗ trợ quản lý tiêm chủng cho người thân.
+								</p>
+								<a href="{% url 'form_submission' %}"  class="new-btn-d br-2">Sử dụng ngay</a>
+							</div>
+						</div>
+						<div class="item">
+							<div class="serviceBox">
+								<div class="service-icon"><i class="fa fa-heart" aria-hidden="true"></i></div>
+								<h3 class="title">Form đã lưu</h3>
+								<p class="description">
+									Sử dụng để tự quản lý tiêm chủng cho bản thân.
+								</p>
+									<a type="onclick"  href="{% url 'form_saved' %}"  class="new-btn-d br-2" >Sử dụng ngay</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>
+	</div>
+	{% comment %} Kết thúc Sổ vaccine {% endcomment %}
+	
+
+	{% comment %} Bắt đầu Vaccine {% endcomment %}
+	<div id="team" class="team-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="title-box">
+						<h2>Vaccine</h2>
+						<p> </p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="{% static 'images/pexels-cottonbro-studio-3952224.jpg' %}" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Vaccine hoạt động như thế nào ? </h3>
+                            <span class="post"></span>
+                            <ul class="social">
+                                <li><a href="https://www.youtube.com/watch?v=hmRbYLBqjyw&ab_channel=B%E1%BB%87nhvi%E1%BB%87n%C4%90KQTVinmec"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="{% static 'images/pexels-karolina-grabowska-4047148.jpg'%}" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Vaccine được đảm bảo như thế nào ?</h3>
+                            <span class="post"></span>
+                            <ul class="social">
+                                <li><a href="https://www.youtube.com/watch?v=R4AUGdT3DE8&ab_channel=YourekaScience"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="{% static 'images/pexels-karolina-grabowska-4047184.jpg'%}" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Sự cần thiết của vaccine</h3>
+                            <span class="post"></span>
+                            <ul class="social">
+                                <li><a href="https://www.youtube.com/watch?v=OG8bU1OJlm8&ab_channel=YourekaScience"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+		</div>
+	</div>
+	{% comment %} Kết thúc vaccine {% endcomment %}
+
+	{% comment %} Bắt đầu footer {% endcomment %}
+	<div class="col-lg-12 col-xs-12">
+					<div class="left-contact">
+						<div class="media cont-line">
+							<div class="media-left icon-b">
+								<i class="fa fa-location-arrow" aria-hidden="true"></i>
+							</div>
+							<div class="media-body dit-right">
+								<h4>Address</h4>
+								<p>Trường Đại học Bách khoa TPHCM</p>
+							</div>
+						</div>
+						<div class="media cont-line">
+							<div class="media-left icon-b">
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+							</div>
+							<div class="media-body dit-right">
+								<h4>Email</h4>
+								
+								<a href="#">nam.vo3182002@hcmut.edu.vn</a>
+							</div>
+						</div>
+						<div class="media cont-line">
+							<div class="media-left icon-b">
+								<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+							</div>
+							<div class="media-body dit-right">
+								<h4>Phone Number</h4>
+								
+								<a href="#">0793696768</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% comment %} Kết thúc footer  {% endcomment %}
+	
+	<!-- Start Footer -->
+	<footer class="footer-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<p class="footer-company-name">All Rights Reserved. &copy; 2023 <a href={%url 'index'%}>EVACCINE</a></p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer -->
+	
+	<a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>
+
+	<!-- ALL JS FILES -->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/popper.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- ALL PLUGINS -->
+	<script src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{% static 'js/jquery.pogo-slider.min.js'%} "></script> 
+	<script src="{% static 'js/slider-index.js'%}"></script>
+	<script src="{% static 'js/smoothscroll.js'%}"></script>
+	<script src="{% static 'js/TweenMax.min.js'%}"></script>
+	<script src="{% static 'js/main.js'%}"></script>
+	<script src="{% static 'js/owl.carousel.min.js'%}"></script>
+	<script src="{% static 'js/form-validator.min.js'%}"></script>
+    <script src="{% static 'js/contact-form-script.js'%}"></script>
+	<script src="{% static 'js/isotope.min.js'%}"></script>	
+	<script src="{% static 'js/images-loded.min.js'%}"></script>	
+    <script src="{% static 'js/custom.js' %}"></script>
+	<script src="{% static 'js/hoslist.js' %}"></script>
+
+</body>
+</html>
